@@ -9,3 +9,8 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.cont {
+    display: flex;
+    flex-direction: column;
+}
