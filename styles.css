@@ -8,9 +8,17 @@ body {
     width: 678px;
     flex-wrap: wrap;
     justify-content: center;
+    
 }
 
 .cont {
     display: flex;
     flex-direction: column;
+    
+}
+
+.grid {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
 }

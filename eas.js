@@ -8,8 +8,7 @@ for (i = 1; i < 17; i++) {
 
     for (let j = 1; j < 17; j++) {
         const grid = document.createElement("div");
-        grid.classList.add(`${j}`);
-        grid.textContent = `${j}`;
+        grid.classList.add("grid");
         cont.appendChild(grid);  
     }
     
