@@ -14,3 +14,13 @@ for (i = 1; i < 17; i++) {
     
 }
 
+// querySelectorAll makes NodeList of all "grid" divs which acts like an array //
+const gridcells = document.querySelectorAll('.grid'); 
+
+// Can now use forEach() to go through every single grid div to specify color input //
+gridcells.forEach((cell) => cell.addEventListener('mouseover', color));
+
+function color(e) {
+    console.log('pass through cell');
+    e.target.style.backgroundColor = 'red'
+}
