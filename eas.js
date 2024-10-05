@@ -5,15 +5,33 @@ let a = 17
 const btn = document.querySelector('#btn');
 btn.addEventListener('click', () => {
     a = prompt('Enter a number')
-    document.querySelectorAll('.container').forEach((element) => {
-        element.innerHTML = "";
-    }) 
-    grid();
+    document.querySelector('.container').innerHTML = "";
+    if (a > 100) {
+        alert("Invalid Input! Only numbers 100 or lesser are allowed.")
+    } else{
+        grid();
+    }
 })
+
+let isDrawing = false;
+
+container.addEventListener('mousedown', startDraw);
+container.addEventListener('mouseup', stopDraw);
+
+
+
+function startDraw() {
+    isDrawing = true;
+}
+
+function stopDraw() {
+    isDrawing = false;
+}
+
 
 
 function grid() {
-    for (i = 1; i < a; i++) {
+    for (let i = 1; i < a; i++) {
         const cont = document.createElement("div");
         cont.classList.add("cont");
         container.appendChild(cont);
@@ -26,7 +44,7 @@ function grid() {
         
     }
     
-    
+
     // querySelectorAll makes NodeList of all "grid" divs which acts like an array //
     const gridcells = document.querySelectorAll('.grid'); 
     
@@ -34,12 +52,16 @@ function grid() {
     gridcells.forEach((cell) => cell.addEventListener('mouseover', color));
     
     function color(e) {
-        console.log('pass through cell');
+        if (!isDrawing) {
+            return;
+        }
+
         e.target.style.backgroundColor = 'red'
-    }
-    
+    } 
 }
 
+
 grid();
+
 
 
