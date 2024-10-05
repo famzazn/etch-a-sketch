@@ -13,20 +13,6 @@ btn.addEventListener('click', () => {
     }
 })
 
-let isDrawing = false;
-
-container.addEventListener('mousedown', startDraw);
-container.addEventListener('mouseup', stopDraw);
-
-
-
-function startDraw() {
-    isDrawing = true;
-}
-
-function stopDraw() {
-    isDrawing = false;
-}
 
 
 
@@ -49,19 +35,34 @@ function grid() {
     const gridcells = document.querySelectorAll('.grid'); 
     
     // Can now use forEach() to go through every single grid div to specify color input //
-    gridcells.forEach((cell) => cell.addEventListener('mouseover', color));
-    
-    function color(e) {
-        if (!isDrawing) {
-            return;
-        }
+    gridcells.forEach((cell) => {
 
-        e.target.style.backgroundColor = 'red'
-    } 
+        cell.addEventListener('mousedown', (e) => {
+            isDrawing = true;
+            color(e);
+        })
+
+        cell.addEventListener('mouseup', () => {
+            isDrawing = false;
+        })
+
+        cell.addEventListener('mousemove', (e) => {
+            if (isDrawing) {
+                color(e);
+            }
+        })
+ 
+        
+        function color(e) {
+            e.target.style.backgroundColor = 'red'
+        } 
+    });
 }
 
 
 grid();
+
+
 
 
 
