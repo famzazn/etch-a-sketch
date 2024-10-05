@@ -5,10 +5,11 @@ let a = 17
 const btn = document.querySelector('#btn');
 btn.addEventListener('click', () => {
     a = prompt('Enter a number')
-    document.querySelector('.container').innerHTML = "";
+    
     if (a > 100) {
-        alert("Invalid Input! Only numbers 100 or lesser are allowed.")
+        alert("Invalid Input! Only numbers 100 or lesser are allowed.");
     } else{
+        document.querySelector('.container').innerHTML = "";
         grid();
     }
 })
